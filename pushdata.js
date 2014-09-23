@@ -16,8 +16,7 @@ var x = new XivelyClient();
 
 x.setKey(apiKey);
 
-fs.readdir('data', function(err, files) {
-
+fs.readdir('/home/pi/node-reader/data', function(err, files) { 
   for (var i = 0; i < files.length; i++) {
     var file = files[i].split(",");
     var sn = "";
@@ -42,7 +41,7 @@ fs.readdir('data', function(err, files) {
         "datastreams" :
         [
           {
-              "id" : sensorName,
+              "id" : sensorName + "-" + sn + "",
               "current_value" : sensorData
           }
         ]
